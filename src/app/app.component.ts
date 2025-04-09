@@ -21,6 +21,10 @@ export class AppComponent {
       text: 'Component State',
     },
     {
+      route: ['/', 'component-service'],
+      text: 'Component Service',
+    },
+    {
       route: ['/', 'route-service'],
       text: 'Route Service',
     },

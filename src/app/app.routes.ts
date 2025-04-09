@@ -5,6 +5,7 @@ import { ComponentStateComponent } from './component-state/component-state.compo
 import { RouteServiceComponent } from './route-service/route-service.component';
 import { OutsideRouteServiceComponent } from './route-service/outside-route-service/outside-route-service.component';
 import { RouteStateService } from './route-service/services/route-state.service';
+import { ComponentServiceComponent } from './component-service/component-service.component';
 
 export const routes: Routes = [
   {
@@ -26,12 +27,17 @@ export const routes: Routes = [
     title: 'Route Service',
     path: 'route-service',
     component: RouteServiceComponent,
-    providers: [RouteStateService]
+    providers: [RouteStateService],
   },
   {
     title: 'Route Service',
     path: 'outside-route-service',
     component: OutsideRouteServiceComponent,
+  },
+  {
+    title: 'Component Service',
+    path: 'component-service',
+    component: ComponentServiceComponent,
   },
   {
     title: 'Not Found',
