@@ -2,6 +2,9 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ComponentStateComponent } from './component-state/component-state.component';
+import { RouteServiceComponent } from './route-service/route-service.component';
+import { OutsideRouteServiceComponent } from './route-service/outside-route-service/outside-route-service.component';
+import { RouteStateService } from './route-service/services/route-state.service';
 
 export const routes: Routes = [
   {
@@ -18,6 +21,17 @@ export const routes: Routes = [
     title: 'Component State',
     path: 'component-state',
     component: ComponentStateComponent,
+  },
+  {
+    title: 'Route Service',
+    path: 'route-service',
+    component: RouteServiceComponent,
+    providers: [RouteStateService]
+  },
+  {
+    title: 'Route Service',
+    path: 'outside-route-service',
+    component: OutsideRouteServiceComponent,
   },
   {
     title: 'Not Found',

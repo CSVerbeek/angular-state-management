@@ -1,0 +1,14 @@
+<div class="page">
+  <h1 class="page__title">Route State</h1>
+  <p class="page__introduction">
+    Route state is global state that is only accessible when within the route where the service is provided.
+  </p>
+  <div class="page__example">
+    This is state from the RouteStateService.
+    <div>{{ this.prop1() }} {{this.prop2()}} {{this.prop3()}}</div>
+    <div>{{this.summary()}}</div>
+
+    <button [routerLink]="['/','outside-route-service']" class="button">Navigate outside route with the
+      state service</button>
+  </div>
+</div>

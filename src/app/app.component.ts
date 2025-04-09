@@ -13,8 +13,16 @@ export class AppComponent {
     text: string;
   }[] = [
     {
+      route: ['/'],
+      text: 'Home',
+    },
+    {
       route: ['/', 'component-state'],
       text: 'Component State',
+    },
+    {
+      route: ['/', 'route-service'],
+      text: 'Route Service',
     },
   ];
 }
