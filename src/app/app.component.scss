@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 1rem;
+
+  .main {
+    flex: 1;
+  }
+}
+
+.nav {
+  &__link {
+    display: inline-block;
+    border-radius: 0.25rem;
+    color: white;
+    background-color: black;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}

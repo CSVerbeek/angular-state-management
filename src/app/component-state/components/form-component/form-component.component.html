@@ -1,0 +1,8 @@
+@if(item(); as item) {
+Editing {{item.first}} {{item.second}} {{item.third}}
+}
+<div [formGroup]="form">
+  <input formControlName="first" />
+  <input formControlName="second" />
+  <input formControlName="third" />
+</div>

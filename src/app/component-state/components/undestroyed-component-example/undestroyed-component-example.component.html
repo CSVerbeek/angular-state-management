@@ -1,0 +1,9 @@
+<asm-item-list [items]="items" (selectItem)="onSelectItem($event)"></asm-item-list>
+@if(selectedItem; as selectedItem) {
+<p>This form component is not destroyed and initialized when changing the selected item</p>
+<asm-form-component [item]="selectedItem"></asm-form-component>
+<p>This form is destroyed and initialized when changing the selected item</p>
+<ng-container *asmRerenderOnChange="selectedItem">
+  <asm-form-component [item]="selectedItem"></asm-form-component>
+</ng-container>
+}

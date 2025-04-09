@@ -1,0 +1,19 @@
+<div>
+  Items
+</div>
+@for(item of items(); track item) {
+<div (click)="onClickItem(item)" class="item-row clickable">
+  <div>
+    {{$index + 1}}
+  </div>
+  <div>
+    {{item.first}}
+  </div>
+  <div>
+    {{item.second}}
+  </div>
+  <div>
+    {{item.third}}
+  </div>
+</div>
+}
