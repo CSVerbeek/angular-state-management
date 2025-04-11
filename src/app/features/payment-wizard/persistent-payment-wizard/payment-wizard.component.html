@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <h1>Persistent Wizard Navigation</h1>
+</mat-toolbar>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a
+    mat-tab-link
+    [routerLink]="['personal-information']"
+    routerLinkActive
+    [active]="currentStepIndex() === 0"
+  >
+    Step 1: Personal Info
+  </a>
+  <a
+    mat-tab-link
+    [routerLink]="['address-information']"
+    routerLinkActive
+    [active]="currentStepIndex() === 1"
+  >
+    Step 2: Address
+  </a>
+  <a
+    mat-tab-link
+    [routerLink]="['payment-details']"
+    routerLinkActive
+    [active]="currentStepIndex() === 2"
+  >
+    Step 3: Payment
+  </a>
+  <a
+    mat-tab-link
+    [routerLink]="['payment-confirmation']"
+    routerLinkActive
+    [active]="currentStepIndex() === 3"
+  >
+    Step 4: Confirmation
+  </a>
+</nav>
+
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+<button mat-raised-button (click)="goToPrevious()" [disabled]="isFirstStep()">
+  Previous
+</button>
+
+@if(isLastStep()) {
+<button mat-raised-button color="primary" (click)="goToNext()">Confirm</button>
+} @else {
+<button mat-raised-button color="primary" (click)="goToNext()">Next</button>
+}

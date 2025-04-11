@@ -11,12 +11,14 @@ import { MatButton } from "@angular/material/button";
 import { MatTabLink, MatTabNav, MatTabNavPanel } from "@angular/material/tabs";
 import { MatToolbar } from "@angular/material/toolbar";
 import {
+  ActivatedRoute,
   NavigationEnd,
   Router,
   RouterLink,
   RouterOutlet,
 } from "@angular/router";
 import { filter } from "rxjs";
+import { PaymentWizardStateService } from "../payment-wizard-state.service";
 
 @Component({
   selector: "asm-payment-wizard",
@@ -29,10 +31,11 @@ import { filter } from "rxjs";
     MatButton,
     RouterLink,
   ],
+  providers: [PaymentWizardStateService],
   templateUrl: "./payment-wizard.component.html",
   styleUrl: "./payment-wizard.component.scss",
 })
-export class PaymentWizardComponent {
+export class NonPersistentPaymentWizardComponent {
   readonly currentStepIndex = signal(0);
   readonly isFirstStep = computed(() => this.currentStepIndex() === 0);
   readonly isLastStep = computed(
@@ -40,6 +43,7 @@ export class PaymentWizardComponent {
   );
 
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
   private readonly destroyRef = inject(DestroyRef);
   private readonly steps: string[] = [
     "personal-information",
@@ -91,7 +95,9 @@ export class PaymentWizardComponent {
 
   private navigateOnCurrentIndexChange(): void {
     effect(() => {
-      this.router.navigate(["/wizard", this.steps[this.currentStepIndex()]]);
+      this.router.navigate([this.steps[this.currentStepIndex()]], {
+        relativeTo: this.route,
+      });
     });
   }
 }

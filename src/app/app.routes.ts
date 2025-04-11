@@ -5,12 +5,14 @@ import { ComponentStateComponent } from "./component-state/component-state.compo
 import { RouteServiceComponent } from "./route-service/route-service.component";
 import { OutsideRouteServiceComponent } from "./route-service/outside-route-service/outside-route-service.component";
 import { RouteStateService } from "./route-service/services/route-state.service";
-import { PaymentWizardComponent } from "./features/payment-wizard/payment-wizard.component";
+import { PersistentPaymentWizardComponent } from "./features/payment-wizard/persistent-payment-wizard/payment-wizard.component";
 import { PersonalInformationComponent } from "./features/personal-information/personal-information.component";
 import { AddressInformationComponent } from "./features/address-information/address-information.component";
 import { PaymentDetailsComponent } from "./features/payment-details/payment-details.component";
 import { PaymentConfirmationComponent } from "./features/payment-confirmation/payment-confirmation.component";
 import { ComponentServiceComponent } from "./component-service/component-service.component";
+import { PaymentWizardStateService } from "./features/payment-wizard/payment-wizard-state.service";
+import { NonPersistentPaymentWizardComponent } from "./features/payment-wizard/non-persistent-payment-wizard/payment-wizard.component";
 
 export const routes: Routes = [
   {
@@ -45,8 +47,20 @@ export const routes: Routes = [
     component: OutsideRouteServiceComponent,
   },
   {
-    path: "wizard",
-    component: PaymentWizardComponent,
+    path: "persistent-wizard",
+    component: PersistentPaymentWizardComponent,
+    providers: [PaymentWizardStateService],
+    children: [
+      { path: "personal-information", component: PersonalInformationComponent },
+      { path: "address-information", component: AddressInformationComponent },
+      { path: "payment-details", component: PaymentDetailsComponent },
+      { path: "payment-confirmation", component: PaymentConfirmationComponent },
+      { path: "", redirectTo: "personal-information", pathMatch: "full" },
+    ],
+  },
+  {
+    path: "non-persistent-wizard",
+    component: NonPersistentPaymentWizardComponent,
     children: [
       { path: "personal-information", component: PersonalInformationComponent },
       { path: "address-information", component: AddressInformationComponent },

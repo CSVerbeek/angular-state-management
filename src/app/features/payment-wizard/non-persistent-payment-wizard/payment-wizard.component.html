@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
-  <span>Wizard Navigation</span>
+  <h1>Non Persistent Wizard Navigation</h1>
 </mat-toolbar>
 
-<nav mat-tab-nav-bar backgroundColor="accent" [tabPanel]="tabPanel">
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
   <a
     mat-tab-link
     [routerLink]="['personal-information']"
     routerLinkActive
-    [active]="false"
+    [active]="currentStepIndex() === 0"
   >
     Step 1: Personal Info
   </a>
@@ -15,7 +15,7 @@
     mat-tab-link
     [routerLink]="['address-information']"
     routerLinkActive
-    [active]="false"
+    [active]="currentStepIndex() === 1"
   >
     Step 2: Address
   </a>
@@ -23,7 +23,7 @@
     mat-tab-link
     [routerLink]="['payment-details']"
     routerLinkActive
-    [active]="false"
+    [active]="currentStepIndex() === 2"
   >
     Step 3: Payment
   </a>
@@ -31,7 +31,7 @@
     mat-tab-link
     [routerLink]="['payment-confirmation']"
     routerLinkActive
-    [active]="false"
+    [active]="currentStepIndex() === 3"
   >
     Step 4: Confirmation
   </a>
@@ -46,21 +46,7 @@
 </button>
 
 @if(isLastStep()) {
-<button
-  mat-raised-button
-  color="primary"
-  (click)="goToNext()"
-  [disabled]="isLastStep()"
->
-  Confirm
-</button>
+<button mat-raised-button color="primary" (click)="goToNext()">Confirm</button>
 } @else {
-<button
-  mat-raised-button
-  color="primary"
-  (click)="goToNext()"
-  [disabled]="isLastStep()"
->
-  Next
-</button>
+<button mat-raised-button color="primary" (click)="goToNext()">Next</button>
 }

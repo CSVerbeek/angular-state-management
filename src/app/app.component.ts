@@ -33,7 +33,11 @@ export class AppComponent {
       text: "Route Service",
     },
     {
-      route: ["/", "wizard"],
+      route: ["/", "non-persistent-wizard"],
+      text: "Wizard without persistent state",
+    },
+    {
+      route: ["/", "persistent-wizard"],
       text: "Wizard with persistent state",
     },
   ];
