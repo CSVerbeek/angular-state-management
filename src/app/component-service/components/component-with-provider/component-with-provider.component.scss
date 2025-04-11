@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  padding: 1rem;
+  border: solid 1px violet;
+}
+
+.children-container {
+  display: flex;
+  justify-content: space-between;
+}

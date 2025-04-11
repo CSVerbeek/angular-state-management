@@ -1,0 +1,14 @@
+@if(stateService.publicState(); as bidState) {
+The highest bid is: {{bidState.bid}} by {{bidState.bidder}}.
+} @else {
+The first bid has yet to be placed.
+}
+<div>
+  <button class="button" (click)="bid(1)">Bid 1 more</button>
+  <button class="button" (click)="bid(5)">Bid 5 more</button>
+  <button class="button" (click)="bid(10)">Bid 10 more</button>
+</div>
+<div class="children-container">
+  <asm-child-one></asm-child-one>
+  <asm-child-two></asm-child-two>
+</div>

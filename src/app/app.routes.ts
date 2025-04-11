@@ -10,6 +10,7 @@ import { PersonalInformationComponent } from "./features/personal-information/pe
 import { AddressInformationComponent } from "./features/address-information/address-information.component";
 import { PaymentDetailsComponent } from "./features/payment-details/payment-details.component";
 import { PaymentConfirmationComponent } from "./features/payment-confirmation/payment-confirmation.component";
+import { ComponentServiceComponent } from "./component-service/component-service.component";
 
 export const routes: Routes = [
   {
@@ -26,6 +27,11 @@ export const routes: Routes = [
     title: "Component State",
     path: "component-state",
     component: ComponentStateComponent,
+  },
+  {
+    title: "Component Service",
+    path: "component-service",
+    component: ComponentServiceComponent,
   },
   {
     title: "Route Service",
