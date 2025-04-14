@@ -14,6 +14,7 @@ import { ComponentServiceComponent } from './component-service/component-service
 import { PaymentWizardStateService } from './features/payment-wizard/payment-wizard-state.service';
 import { NonPersistentPaymentWizardComponent } from './features/payment-wizard/non-persistent-payment-wizard/payment-wizard.component';
 import { InputOutputComponentStateComponent } from './input-output-component-state/input-output-component-state.component';
+import { AppGlobalStateComponent } from './app-global-state/app-global-state.component';
 
 export const routes: Routes = [
   {
@@ -51,6 +52,11 @@ export const routes: Routes = [
     title: 'Route Service',
     path: 'outside-route-service',
     component: OutsideRouteServiceComponent,
+  },
+  {
+    title: 'App Global State',
+    path: 'app-global-state',
+    component: AppGlobalStateComponent,
   },
   {
     path: 'persistent-wizard',

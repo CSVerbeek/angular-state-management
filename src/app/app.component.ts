@@ -37,6 +37,10 @@ export class AppComponent {
       text: 'Route Service',
     },
     {
+      route: ['/', 'app-global-state'],
+      text: 'App Global State',
+    },
+    {
       route: ['/', 'non-persistent-wizard'],
       text: 'Wizard without persistent state',
     },
