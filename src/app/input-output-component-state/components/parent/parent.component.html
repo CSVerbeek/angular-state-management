@@ -1,0 +1,12 @@
+<p>Parent say something:</p>
+<input type="text" (keydown.enter)="onParentSays($event)">
+
+<div class="children-container">
+  <asm-child [shallowState]="shallowState()" [deepState]="deepState()" (saysSomething)="onChild1Says($event)"
+    (childSaysSomething)="onGrandChildSays($event)" [hasChild]="true"></asm-child>
+  <asm-child [shallowState]="shallowState()" [deepState]="deepState()" (saysSomething)="onChild2Says($event)"
+    (childSaysSomething)="onGrandChildSays($event)" [hasChild]="true"></asm-child>
+</div>
+
+<p>They say shallow state: {{this.theySayShallow()}}</p>
+<p>They say deep state: {{this.theySayDeep()}}</p>

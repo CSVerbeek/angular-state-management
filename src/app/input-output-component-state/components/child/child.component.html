@@ -1,0 +1,15 @@
+<p>Parent says: {{this.shallowState().parentSays}}</p>
+
+@if(isSiblingAgreeing()) {
+<p>Sibling agrees with you</p>
+} @else {
+<p>Sibling says: {{siblingSays()}}</p>
+}
+
+<p>Child say something:</p>
+<input type="text" [(ngModel)]="whatISaid" (keydown.enter)="onSay()">
+
+@if(hasChild()) {
+<button class="button" (click)="onAgree()">Agree with sibling</button>
+<asm-child [deepState]="deepState()" (saysSomething)="onChildSays($event)"></asm-child>
+}
